@@ -16,7 +16,7 @@
 
                     <div class="row text-center">
                         <div class="col-sm-4">
-                            <a href="/managment">
+                            <a href="/management">
                                 <h4>Managment</h4>
                                 <img src="{{ asset('images/representation.svg') }}" width="50px" />
                             </a>
