@@ -6,3 +6,6 @@ a:hover {
     text-decoration: none;
     color: #343a40;
 }
+.nounderline {
+    text-decoration: none !important
+}
