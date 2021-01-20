@@ -14,7 +14,8 @@
             <div class="col-md-8">
                 <i class="fas fa-align-justify"></i> Create Category
                 <hr>
-                <form>
+                <form action="/management/category" method="POST">
+                    @csrf
                     <div class="form-group">
                         <label for="categoryName">Category Name</label>
                         <input type="text" name="name" class="form-control" placeholder="Category...">

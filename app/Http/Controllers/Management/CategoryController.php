@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Management;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
+use App\Category;
 
 class CategoryController extends Controller
 {
@@ -32,11 +33,15 @@ class CategoryController extends Controller
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Http\Response|\Illuminate\Routing\Redirector
      */
     public function store(Request $request)
     {
-        //
+        $category = new Category;
+        $category->name = $request->name;
+        $category->save();
+
+        return(redirect('/management/category'));
     }
 
     /**
