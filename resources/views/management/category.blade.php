@@ -21,6 +21,27 @@
                         {{ Session()->get('status') }}
                     </div>
                 @endif
+                <table class="table table-bordered text-center">
+                    <thead>
+                        <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">Category</th>
+                            <th scope="col">Edit</th>
+                            <th scope="col">Delete</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach($categories as $category)
+                            <tr>
+                                <td scope="row">{{ $category->id }}</td>
+                                <td scope="row">{{ $category->name }}</td>
+                                <td scope="row"> <a href="#" class="fas fa-edit text-primary"> Edit</a> </td>
+                                <td scope="row"> <a href="#" class="fas fa-trash-alt text-danger"> Delete</a> </td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+                {{ $categories->links() }}
             </div>
         </div>
     </div>
