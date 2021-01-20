@@ -14,6 +14,15 @@
             <div class="col-md-8">
                 <i class="fas fa-align-justify"></i> Create Category
                 <hr>
+                @if($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
                 <form action="/management/category" method="POST">
                     @csrf
                     <div class="form-group">
