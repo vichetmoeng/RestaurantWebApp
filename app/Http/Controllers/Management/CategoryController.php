@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 use App\Category;
+use MongoDB\Driver\Session;
 
 class CategoryController extends Controller
 {
@@ -101,6 +102,8 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Category::destroy($id);
+        Session()->flash('status', 'The category is deleted successfully!');
+        return redirect('/management/category');
     }
 }

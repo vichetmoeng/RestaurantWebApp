@@ -36,7 +36,13 @@
                                 <td scope="row">{{ $category->id }}</td>
                                 <td scope="row">{{ $category->name }}</td>
                                 <td scope="row"> <a href="category/{{$category->id}}/edit" class="fas fa-edit text-primary"> Edit</a> </td>
-                                <td scope="row"> <a href="#" class="fas fa-trash-alt text-danger"> Delete</a> </td>
+                                <td scope="row">
+                                    <form action="/management/category/{{$category->id}}" method="POST">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button class="btn btn-link nounderline"><i class="fas fa-trash-alt text-danger"></i> Delete</button>
+                                    </form>
+                                </td>
                             </tr>
                         @endforeach
                     </tbody>
