@@ -35,7 +35,7 @@
                             <tr>
                                 <td scope="row">{{ $category->id }}</td>
                                 <td scope="row">{{ $category->name }}</td>
-                                <td scope="row"> <a href="#" class="fas fa-edit text-primary"> Edit</a> </td>
+                                <td scope="row"> <a href="category/{{$category->id}}/edit" class="fas fa-edit text-primary"> Edit</a> </td>
                                 <td scope="row"> <a href="#" class="fas fa-trash-alt text-danger"> Delete</a> </td>
                             </tr>
                         @endforeach
