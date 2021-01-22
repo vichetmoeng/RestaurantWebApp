@@ -16,9 +16,10 @@
                         </ul>
                     </div>
                 @endif
-                <form action="/management/menu" method="POST" enctype="multipart/form-data">
+                <form action="/management/menu/{{$menu->id}}" method="POST" enctype="multipart/form-data">
 
                     @csrf
+                    @method('PUT')
                     <div class="form-group">
                         <label for="menuName">Menu Name</label>
                         <input type="text" name="name" value="{{$menu->name}}" class="form-control" placeholder="Menu...">
@@ -50,7 +51,7 @@
                         <label for="Category">Category</label>
                         <select class="form-control" name="category_id">
                             @foreach($categories as $category)
-                                <option value="{{$category->id}} {{$menu->category_id === $category->id ? 'selected': ''}}">{{$category->name}}</option>
+                                <option value="{{$category->id}}" {{$menu->category_id === $category->id ? 'selected': ''}}>{{$category->name}}</option>
                             @endforeach
                         </select>
                     </div>
