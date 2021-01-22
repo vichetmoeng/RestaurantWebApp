@@ -38,7 +38,9 @@
                                 </td>
                                 <td>{{ $menu->description }}</td>
                                 <td>{{ $menu->category->name }}</td>
-                                <td></td>
+                                <td>
+                                    <a href="/management/menu/{{$menu->id}}/edit" class="fas fa-edit text-primary"></a>
+                                </td>
                                 <td></td>
                             </tr>
                         @endforeach
