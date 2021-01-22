@@ -38,8 +38,16 @@
                                 </td>
                                 <td>{{ $menu->description }}</td>
                                 <td>{{ $menu->category->name }}</td>
-                                <td></td>
-                                <td></td>
+                                <td>
+                                    <a href="/management/menu/{{$menu->id}}/edit" class="fas fa-edit text-primary"></a>
+                                </td>
+                                <td>
+                                    <form action="/management/menu/{{$menu->id}}" method="post">
+                                        @csrf
+                                        @method('DELETE')
+                                        <input type="submit" value="Delete" class="btn btn-danger">
+                                    </form>
+                                </td>
                             </tr>
                         @endforeach
 
