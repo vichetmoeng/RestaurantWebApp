@@ -30,7 +30,9 @@
                                 <td>{{$table->id}}</td>
                                 <td>{{$table->name}}</td>
                                 <td>{{$table->status}}</td>
-                                <td></td>
+                                <td>
+                                    <a href="/management/table/{{$table->id}}/edit" class="fas fa-edit text-primary"></a>
+                                </td>
                                 <td></td>
                             </tr>
                         @endforeach
