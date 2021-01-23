@@ -18,14 +18,22 @@
                     <thead>
                         <tr>
                             <th scope="col">ID</th>
-                            <th scope="col">Table</th>
+                            <th scope="col">Name</th>
                             <th scope="col">Status</th>
                             <th scope="col">Edit</th>
                             <th scope="col">Delete</th>
                         </tr>
                     </thead>
                     <tbody>
-
+                        @foreach($tables as $table)
+                            <tr>
+                                <td>{{$table->id}}</td>
+                                <td>{{$table->name}}</td>
+                                <td>{{$table->status}}</td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>
