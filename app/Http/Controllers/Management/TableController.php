@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Management;
 use App\Http\Controllers\Controller;
 use App\Table;
 use Illuminate\Http\Request;
+use MongoDB\Driver\Session;
 
 class TableController extends Controller
 {
@@ -104,6 +105,8 @@ class TableController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Table::destroy($id);
+        Session()->flash('status', 'The table is deleted');
+        return redirect('/management/table');
     }
 }

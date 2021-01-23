@@ -33,7 +33,13 @@
                                 <td>
                                     <a href="/management/table/{{$table->id}}/edit" class="fas fa-edit text-primary"></a>
                                 </td>
-                                <td></td>
+                                <td>
+                                    <form action="/management/table/{{$table->id}}" method="post">
+                                        @csrf
+                                        @method('DELETE')
+                                        <input type="submit" value="Delete" class="btn btn-danger">
+                                    </form>
+                                </td>
                             </tr>
                         @endforeach
                     </tbody>
