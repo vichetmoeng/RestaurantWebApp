@@ -23,6 +23,10 @@ Route::get('/management', function () {
     return view('management.index');
 });
 
+Route::get('/cashier', function (){
+    return view('cashier.index');
+});
+
 Route::resource('management/category', 'Management\CategoryController');
 
 Route::resource('management/menu', 'Management\MenuController');
