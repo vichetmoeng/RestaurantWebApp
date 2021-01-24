@@ -12,10 +12,21 @@
     </div>
     <script>
         $(document).ready(function (){
+            // make table hidden by default
+            $('#table-detail').hide();
+
+            // show all tables when button clicked
            $('#btn-show-table').click(function (){
-              $.get("/cashier/gettable", function (data){
-                  $('#table-detail').html(data);
-              })
+               if ($('#table-detail').is(":hidden")) {
+                  $.get("/cashier/gettable", function (data){
+                      $('#table-detail').html(data);
+                      $('#table-detail').slideDown('fast');
+                      $('#btn-show-table').html('Hide Tables').removeClass('btn-primary').addClass('btn-danger');
+                  })
+               } else {
+                   $('#table-detail').slideUp('fast');
+                   $('#btn-show-table').html('View All Tables').removeClass('btn-danger').addClass('btn-primary');
+               }
            });
         });
     </script>
