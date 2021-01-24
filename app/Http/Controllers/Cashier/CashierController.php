@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Cashier;
 
+use App\Category;
 use App\Http\Controllers\Controller;
 use App\Table;
 use Illuminate\Http\Request;
@@ -10,7 +11,8 @@ class CashierController extends Controller
 {
     // page of cashier
     public function index() {
-        return view('cashier.index');
+        $categories = Category::all();
+        return view('cashier.index')->with('categories', $categories);
     }
 
     public function getTable() {
