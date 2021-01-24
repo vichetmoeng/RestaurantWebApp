@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Management;
 use App\Http\Controllers\Controller;
 use App\Table;
 use Illuminate\Http\Request;
-use MongoDB\Driver\Session;
 
 class TableController extends Controller
 {
