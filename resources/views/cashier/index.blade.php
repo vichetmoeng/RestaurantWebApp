@@ -6,6 +6,7 @@
         <div class="row">
             <div class="col-md-5">
                 <button class="btn btn-primary btn-block" id="btn-show-table">View All Table</button>
+                <div id="selected-table"></div>
             </div>
             <div class="col-md-7">
                 <nav>
@@ -47,6 +48,14 @@
                     $('#list-menu').html(data);
                     $('#list-menu').fadeIn('fast');
                 })
+            })
+
+            // detect button table onclick
+            $('#table-detail').on("click", ".btn-table", function () {
+                var SELECTED_TABLE_ID = $(this).data("id");
+                var SELECTED_TABLE_NAME = $(this).data("name");
+
+                $('#selected-table').html('<br><h3>Table: '+SELECTED_TABLE_NAME+'</h3><hr>')
             })
         });
     </script>
