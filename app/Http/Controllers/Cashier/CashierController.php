@@ -88,8 +88,23 @@ class CashierController extends Controller
         // update total price in sale table
         $sale->total_price = $sale->total_price + ($request->quantity * $menu->price);
         $sale->save();
-        
+
         return $html = $this->getSaleDetails($saleId);
+    }
+
+    public function getSaleDetailsByTable($table_id) {
+        $sale = Sale::where('table_id', $table_id)->where('sale_status', 'unpaid')->first();
+
+        $html = '';
+
+        if ($sale) {
+            $saleId = $sale->id;
+            $html .= $this->getSaleDetails($saleId);
+        } else {
+            $html .= "Not Found Any Sale Details for the selected table!";
+        }
+
+        return $html;
     }
 
     private function getSaleDetails($saleId) {
