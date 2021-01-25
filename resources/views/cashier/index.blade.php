@@ -87,6 +87,22 @@
                 }
 
             })
+
+            $('#order-details').on("click", ".btn-confirm-order", function () {
+                var saleId = $(this).data("id")
+
+                $.ajax({
+                    type: "POST",
+                    data: {
+                        "_token" : $('meta[name="csrf-token"]').attr('content'),
+                        "sale_id" : saleId
+                    },
+                    url: "/cashier/confirmOrderStatus",
+                    success: function (data) {
+                        $('#order-details').html(data)
+                    }
+                })
+            })
         });
     </script>
 @endsection
