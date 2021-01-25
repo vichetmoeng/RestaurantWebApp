@@ -88,7 +88,11 @@ class CashierController extends Controller
         // update total price in sale table
         $sale->total_price = $sale->total_price + ($request->quantity * $menu->price);
         $sale->save();
+        
+        return $html = $this->getSaleDetails($saleId);
+    }
 
+    private function getSaleDetails($saleId) {
         // list all sale_details
         $html = '<p>Sale ID: '.$saleId.'</p>';
         $saleDetails = SaleDetail::where('sale_id', $saleId)->get();
@@ -105,8 +109,8 @@ class CashierController extends Controller
                             </tr>
                         </thead>
                         <tbody>';
-                            foreach ($saleDetails as $saleDetail) {
-                                $html .= '
+        foreach ($saleDetails as $saleDetail) {
+            $html .= '
                                     <tr>
                                         <td>'.$saleDetail->menu_id.'</td>
                                         <td>'.$saleDetail->menu_name.'</td>
@@ -116,9 +120,9 @@ class CashierController extends Controller
                                         <td>'.$saleDetail->status.'</td>
                                     </tr>
                                 ';
-                            }
+        }
 
-                        $html .='</tbody>
+        $html .='</tbody>
                     </table>
                   </div>';
         return $html;
