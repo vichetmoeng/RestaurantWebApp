@@ -25,9 +25,14 @@ class CashierController extends Controller
         foreach ($tables as $table) {
             $html .= '<div class="col-md-2 mb-4">';
             $html .= '<button class="btn btn-primary btn-table" data-id="'.$table->id.'" data-name="'.$table->name.'">
-                          <img class="img-fluid" src="'.url('/images/table.svg').'"/> <br>
-                          <span class="badge badge-success">'.$table->name.'</span>
-                      </button>';
+                          <img class="img-fluid" src="'.url('/images/table.svg').'"/> <br>';
+            if ($table->status == "available") {
+                $html .= '<span class="badge badge-success">'.$table->name.'</span>';
+            } else {
+                $html .= '<span class="badge badge-danger">'.$table->name.'</span>';
+            }
+
+            $html .= '</button>';
             $html .= '</div>';
         }
 
@@ -72,6 +77,7 @@ class CashierController extends Controller
             // update table status
             $table = Table::find($tableId);
             $table->status = "unavailable";
+            $table->save();
         } else {
             $saleId = $sale->id;
         }
