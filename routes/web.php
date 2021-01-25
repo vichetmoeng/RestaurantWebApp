@@ -26,6 +26,7 @@ Route::get('/management', function () {
 Route::get('/cashier', 'Cashier\CashierController@index');
 Route::get('/cashier/getMenuByCategory/{category_id}', 'Cashier\CashierController@getMenuByCategory');
 Route::get('/cashier/gettable', 'Cashier\CashierController@getTable');
+Route::post('/cashier/orderFood', 'Cashier\CashierController@orderFood');
 
 Route::resource('management/category', 'Management\CategoryController');
 Route::resource('management/menu', 'Management\MenuController');
