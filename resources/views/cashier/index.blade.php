@@ -90,6 +90,7 @@
             // detect button table onclick
             var SELECTED_TABLE_ID = "";
             var SELECTED_TABLE_NAME = "";
+            var SALE_ID = "";
 
             $('#table-detail').on("click", ".btn-table", function () {
                 SELECTED_TABLE_ID = $(this).data("id");
@@ -162,6 +163,7 @@
                 $('.totalAmount').html("Total Amount : " + totalAmount)
                 $('#recieved-amount').val('')
                 $('.changedAmount').html('')
+                SALE_ID = $(this).data("id")
             })
 
             //calculate change when payment
@@ -180,6 +182,26 @@
                 }
             })
 
+            // save payment functionality
+            $('.btn-save-payment').click(function () {
+                var recievedAmount = $('#recieved-amount').val()
+                var paymentType = $('#payment-type').val()
+                var saleId = SALE_ID;
+
+                $.ajax({
+                    type: "POST",
+                    data: {
+                        "_token" : $('meta[name="csrf-token"]').attr('content'),
+                        "saleID" : saleId,
+                        "recievedAmount" : recievedAmount,
+                        "paymentType" : paymentType
+                    },
+                    url: "/cashier/savePayment",
+                    success: function (data) {
+                        window.location.href = data;
+                    }
+                })
+            })
 
         });
     </script>
