@@ -103,6 +103,22 @@
                     }
                 })
             })
+
+            // delete sale detail
+            $('#order-details').on("click", ".btn-delete-saledetail", function () {
+                var saleDetailId = $(this).data("id")
+                $.ajax({
+                    type: "POST",
+                    data: {
+                        "_token" : $('meta[name="csrf-token"]').attr('content'),
+                        "saleDetail_id" : saleDetailId
+                    },
+                    url: "/cashier/deleteSaleDetail",
+                    success: function (data) {
+                        $('#order-details').html(data);
+                    }
+                })
+            })
         });
     </script>
 @endsection

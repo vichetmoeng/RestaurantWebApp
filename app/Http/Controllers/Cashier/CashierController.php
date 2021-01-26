@@ -176,4 +176,29 @@ class CashierController extends Controller
         return $html;
     }
 
+    public function deleteSaleDetail(Request $request) {
+        $saleDetailID = $request->saleDetail_id;
+        $saleDetail = SaleDetail::find($saleDetailID);
+
+        $saleId = $saleDetail->sale_id;
+        $menuPrice = ($saleDetail->menu_price * $saleDetail->quantity);
+        $saleDetail->delete();
+
+        // update total price
+        $sale = Sale::find($saleId);
+        $sale->total_price = $sale->total_price - $menuPrice;
+        $sale->save();
+
+        // check if there any saledetail having the sale id
+        $saleDetails = SaleDetail::where('sale_id', $saleId)->first();
+        if ($saleDetails) {
+            $html = $this->getSaleDetails($saleId);
+        } else {
+            $html = "NOt Found Any Sale Details for the Selected Table";
+        }
+
+        return $html;
+
+    }
+
 }
