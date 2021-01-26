@@ -46,7 +46,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
+                    <button type="button" class="btn btn-primary btn-save-payment" disabled >Save Payment</button>
                 </div>
             </div>
         </div>
@@ -153,6 +153,8 @@
             $('#order-details').on("click", ".btn-payment", function () {
                 var totalAmount = $(this).attr('data-totalAmount');
                 $('.totalAmount').html("Total Amount : " + totalAmount)
+                $('#recieved-amount').val('')
+                $('.changedAmount').html('')
             })
 
             //calculate change when payment
@@ -162,7 +164,16 @@
                 var changedAmount = recievedAmount - totalAmount;
 
                 $('.changedAmount').html("Total Change : " + changedAmount)
+
+                // check if change amount is bigger then total amount then enable save payment button
+                if (changedAmount >= 0) {
+                    $('.btn-save-payment').prop('disabled', false)
+                } else {
+                    $('.btn-save-payment').prop('disabled', true)
+                }
             })
+
+
         });
     </script>
 @endsection
