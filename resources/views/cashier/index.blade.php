@@ -36,13 +36,20 @@
                 </div>
                 <div class="modal-body">
                     <h3 class="totalAmount"></h3>
+                    <h3 class="changedAmount"></h3>
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">
                             <span class="input-group-text">$</span>
                         </div>
                         <input type="number" id="recieved-amount" class="form-control">
                     </div>
-                    <h3 class="changedAmount"></h3>
+                    <div class="form-group">
+                        <label for="payment">Payment Type</label>
+                        <select class="form-control" id="payment-type">
+                            <option value="cash">Cash</option>
+                            <option value="credit card">Credit Card</option>
+                        </select>
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
