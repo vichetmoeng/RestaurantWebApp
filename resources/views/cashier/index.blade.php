@@ -36,6 +36,13 @@
                 </div>
                 <div class="modal-body">
                     <h3 class="totalAmount"></h3>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">$</span>
+                        </div>
+                        <input type="number" id="recieved-amount" class="form-control">
+                    </div>
+                    <h3 class="changedAmount"></h3>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -146,6 +153,15 @@
             $('#order-details').on("click", ".btn-payment", function () {
                 var totalAmount = $(this).attr('data-totalAmount');
                 $('.totalAmount').html("Total Amount : " + totalAmount)
+            })
+
+            //calculate change when payment
+            $('#recieved-amount').keyup(function (){
+                var totalAmount = $('.btn-payment').attr('data-totalAmount');
+                var recievedAmount = $(this).val();
+                var changedAmount = recievedAmount - totalAmount;
+
+                $('.changedAmount').html("Total Change : " + changedAmount)
             })
         });
     </script>
