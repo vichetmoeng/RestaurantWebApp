@@ -19,9 +19,9 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-// middleware to allow access for login user only
-Route::middleware(['auth'])->group(function () {
+// middleware to allow access for login user with the right role only
 
+Route::middleware(['auth', 'VerifyAdmin'])->group(function () {
     Route::get('/management', function () {
         return view('management.index');
     });
@@ -29,6 +29,12 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('management/menu', 'Management\MenuController');
     Route::resource('management/table', 'Management\TableController');
 
+    Route::get('/report', 'Report\ReportController@index');
+    Route::get('/report/show', 'Report\ReportController@show');
+    Route::get('/report/show/export', 'Report\ReportController@exportToExcel');
+});
+
+Route::middleware(['auth'])->group(function () {
 
     Route::get('/cashier', 'Cashier\CashierController@index');
     Route::get('/cashier/getMenuByCategory/{category_id}', 'Cashier\CashierController@getMenuByCategory');
@@ -39,11 +45,6 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/cashier/deleteSaleDetail', 'Cashier\CashierController@deleteSaleDetail');
     Route::post('/cashier/savePayment', 'Cashier\CashierController@savePaymentInfo');
     Route::get('/cashier/showReceipt/{saleID}', 'Cashier\CashierController@showReceipt');
-
-    Route::get('/report', 'Report\ReportController@index');
-    Route::get('/report/show', 'Report\ReportController@show');
-    Route::get('/report/show/export', 'Report\ReportController@exportToExcel');
-
 
 });
 
