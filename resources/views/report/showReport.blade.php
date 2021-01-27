@@ -75,6 +75,12 @@
                         </tbody>
                     </table>
                     {{$sales->appends($_GET)->links()}}
+
+                    <form action="/report/show/export" method="GET">
+                        <input type="hidden" name="dateStart" value="{{$dateStart}}">
+                        <input type="hidden" name="dateEnd" value="{{$dateEnd}}">
+                        <input type="submit" class="btn btn-warning" value="Export to Excel" >
+                    </form>
                 @else
                     <div class="alert alert-danger" role="alert">
                         There is no Sale Report! Thanks!

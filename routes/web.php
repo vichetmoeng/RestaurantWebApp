@@ -39,3 +39,4 @@ Route::get('/cashier/showReceipt/{saleID}', 'Cashier\CashierController@showRecei
 
 Route::get('/report', 'Report\ReportController@index');
 Route::get('/report/show', 'Report\ReportController@show');
+Route::get('/report/show/export', 'Report\ReportController@exportToExcel');

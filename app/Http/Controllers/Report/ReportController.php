@@ -29,4 +29,8 @@ class ReportController extends Controller
             ->with('totalSale', $sales->sum('total_price'))
             ->with('sales', $sales->paginate(5));
     }
+
+    public function exportToExcel() {
+
+    }
 }
