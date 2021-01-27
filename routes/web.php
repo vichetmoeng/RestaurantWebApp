@@ -31,6 +31,7 @@ Route::get('/cashier/getSaleDetailsByTable/{table_id}', 'Cashier\CashierControll
 Route::post('/cashier/confirmOrderStatus', 'Cashier\CashierController@confirmOrderStatus');
 Route::post('/cashier/deleteSaleDetail', 'Cashier\CashierController@deleteSaleDetail');
 Route::post('/cashier/savePayment', 'Cashier\CashierController@savePaymentInfo');
+Route::get('/cashier/showReceipt/{saleID}', 'Cashier\CashierController@showReceipt');
 
 Route::resource('management/category', 'Management\CategoryController');
 Route::resource('management/menu', 'Management\MenuController');
