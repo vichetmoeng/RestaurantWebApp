@@ -38,3 +38,4 @@ Route::post('/cashier/savePayment', 'Cashier\CashierController@savePaymentInfo')
 Route::get('/cashier/showReceipt/{saleID}', 'Cashier\CashierController@showReceipt');
 
 Route::get('/report', 'Report\ReportController@index');
+Route::get('/report/show', 'Report\ReportController@show');
