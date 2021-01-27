@@ -22,6 +22,10 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/management', function () {
     return view('management.index');
 });
+Route::resource('management/category', 'Management\CategoryController');
+Route::resource('management/menu', 'Management\MenuController');
+Route::resource('management/table', 'Management\TableController');
+
 
 Route::get('/cashier', 'Cashier\CashierController@index');
 Route::get('/cashier/getMenuByCategory/{category_id}', 'Cashier\CashierController@getMenuByCategory');
@@ -33,6 +37,4 @@ Route::post('/cashier/deleteSaleDetail', 'Cashier\CashierController@deleteSaleDe
 Route::post('/cashier/savePayment', 'Cashier\CashierController@savePaymentInfo');
 Route::get('/cashier/showReceipt/{saleID}', 'Cashier\CashierController@showReceipt');
 
-Route::resource('management/category', 'Management\CategoryController');
-Route::resource('management/menu', 'Management\MenuController');
-Route::resource('management/table', 'Management\TableController');
+Route::get('/report', 'Report\ReportController@index');
