@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Report;
 use App\Http\Controllers\Controller;
 use App\Sale;
 use Illuminate\Http\Request;
+use App\Exports\SaleReportExport;
+use Maatwebsite\Excel\Facades\Excel;
 
 class ReportController extends Controller
 {
@@ -30,7 +32,9 @@ class ReportController extends Controller
             ->with('sales', $sales->paginate(5));
     }
 
-    public function exportToExcel() {
+    public function exportToExcel(Request $request) {
 
+        $fileName = 'Report_'.date("m_d_Y").'.xlsx';
+        return Excel::download(new SaleReportExport($request->dateStart, $request->dateEnd), $fileName);
     }
 }
