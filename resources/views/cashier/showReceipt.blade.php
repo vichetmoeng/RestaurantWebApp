@@ -6,6 +6,8 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Receipt - SaleID - {{$sale->id}}</title>
+    <link type="text/css" rel="stylesheet" href="{{asset('/css/receipt.css')}}" media="all">
+    <link type="text/css" rel="stylesheet" href="{{asset('/css/no-print.css')}}" media="print">
 </head>
 <body>
     <div id="wrapper">
@@ -65,7 +67,7 @@
         <div id="receipt-footer">
             <p>Thank You!</p>
         </div>
-        <div id="button">
+        <div id="buttons">
             <a href="/cashier">
                 <button class="btn btn-back">
                     Back to Cashier
