@@ -177,7 +177,7 @@ class CashierController extends Controller
     }
 
     public function savePaymentInfo(Request $request) {
-        $saleID = $request->saleId;
+        $saleID = $request->saleID;
         $recievedAmount = $request->recievedAmount;
         $paymentType = $request->paymentType;
 
@@ -194,7 +194,7 @@ class CashierController extends Controller
         $table->status = "available";
         $table->save();
 
-        return redirect('/cashier');
+        return "/cashier";
     }
 
     public function deleteSaleDetail(Request $request) {
