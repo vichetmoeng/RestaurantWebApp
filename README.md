@@ -1,4 +1,4 @@
-<p align="center"><a href="https://github.com/vichetmoeng/RestaurantWebApp" target="_blank" style="font-size: 72px">Restaurant Web App</a></p>
+<p align="center" style="font-size: 200px"><a href="https://github.com/vichetmoeng/RestaurantWebApp" target="_blank">Restaurant Web App</a></p>
 
 <p align="center">_____________________________________________________</p>
 
@@ -39,4 +39,4 @@ I created by follow a tutorial for learning Laravel perpose only.
     > php artisan serve
     - open that url and use that default admin user to login
 ### Now you can use this web app as you want. 
-#Thanks
+# Thanks
