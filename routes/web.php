@@ -11,11 +11,16 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//// normal business logic
+//Route::get('/', function () {
+//    return view('welcome');
+//});
 
-Auth::routes();
+// just other business logic to disable register and foreget password
+Route::get('/', 'HomeController@index');
+
+Auth::routes(['register' => false, 'reset' => false]);
+
 
 Route::get('/home', 'HomeController@index')->name('home');
 
