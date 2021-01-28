@@ -76,7 +76,9 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
+        $user = User::find($id);
+
+        return view('management.editUser')->with('user', $user);
     }
 
     /**
@@ -88,7 +90,22 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'name' => 'required|max:255',
+            'email' => 'required|email|max:255',
+            'password' => 'required|min:6',
+            'role' => 'required'
+        ]);
+
+        $user = User::find($id);
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->password = Hash::make($request->password);
+        $user->role = $request->role;
+        $user->save();
+        $request->session()->flash('status', $request->name. ' updated success!');
+
+        return redirect('/management/user');
     }
 
     /**

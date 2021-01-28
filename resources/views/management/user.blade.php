@@ -33,7 +33,7 @@
                             <td>{{ $user->role }}</td>
                             <td>{{ $user->email }}</td>
                             <td>
-                                <a href="/management/menu/{{$user->id}}/edit" class="fas fa-edit text-primary">edit</a>
+                                <a href="/management/user/{{$user->id}}/edit" class="fas fa-edit text-primary">edit</a>
                             </td>
                             <td>
                                 <form action="/management/menu/{{$user->id}}" method="post">
