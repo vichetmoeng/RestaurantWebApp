@@ -26,8 +26,8 @@ I created by follow a tutorial for learning Laravel perpose only.
     DB_PASSWORD=root
     ```
 - Create new database in Mysql
-    > login to mysql and type:
-  > >create database restaurantWebApp
+  login to mysql and type:
+  >create database restaurantWebApp
 - Go back to project root directory and open terminal
     > php artisan migrate
 - And to generate default admin user run:
