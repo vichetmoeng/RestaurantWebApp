@@ -11,6 +11,11 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // $this->call(UsersTableSeeder::class);
+        // to create default admin user
+        \Illuminate\Support\Facades\DB::table('users')->insert([
+            'name' => 'iamadmin',
+            'email' => 'iam@admin.com',
+            'password' => \Illuminate\Support\Facades\Hash::make('1337456789')
+        ]);
     }
 }
