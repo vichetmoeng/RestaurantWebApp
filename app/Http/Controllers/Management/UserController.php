@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use MongoDB\Driver\Session;
 
 class UserController extends Controller
 {
@@ -116,6 +117,8 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        User::destroy($id);
+        Session()->flash('status', 'The user is deleted successfully!');
+        return redirect('/management/user');
     }
 }

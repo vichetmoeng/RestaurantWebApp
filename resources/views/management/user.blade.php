@@ -36,7 +36,7 @@
                                 <a href="/management/user/{{$user->id}}/edit" class="fas fa-edit text-primary">edit</a>
                             </td>
                             <td>
-                                <form action="/management/menu/{{$user->id}}" method="post">
+                                <form action="/management/user/{{$user->id}}" method="post">
                                     @csrf
                                     @method('DELETE')
                                     <input type="submit" value="Delete" class="btn btn-danger">
